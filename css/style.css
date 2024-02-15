@@ -1,0 +1,929 @@
+@import url(common.css);
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+
+
+html{scroll-behavior: smooth;}
+body{font-family: 'ClarityCity', 'NotoSansKR';}
+
+/* scroll */
+body::-webkit-scrollbar {width: 8px;}
+body::-webkit-scrollbar-thumb {
+  height: 30%;
+  background: #675648; 
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-track {background: #e4ded2;}
+
+#wrap{
+  width: 100%;
+  color: #333;
+  font-size: 17px;
+  min-width: 1400px;
+}
+
+/* top, bottom button */
+.top a, .bottom a{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #675648;
+  position: fixed;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+  font-size: 30px;
+  color: #675648;
+  right: 84px;
+  cursor: pointer;
+  transition: 0.35s;
+}
+
+.top a{bottom: 115px;}
+.bottom a{bottom: 50px;}
+
+.top a:before, .bottom a:before{
+  content: '';
+  font-family: 'Material Icons Outlined';
+  position: absolute;
+  left: 20%;
+}
+
+.top a:before{
+  content: '\e5ce';
+  top: 20%;
+}
+
+.bottom a:before{
+  content: '\e313';
+  top: 22%;
+}
+
+.top a:hover, .bottom a:hover{
+  color: #fff;
+  border: 1px solid #675648;
+  background-color: #675648;
+  transform: translateY(-7px);
+  box-shadow: 0 5px 10px #67564891;
+}
+
+
+/* ####################### Header */
+
+
+/* main */
+#main{
+  height: 950px;
+  position: relative;
+}
+
+#main img{
+  background-size: cover;
+  width: 100%;
+}
+
+.item li{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  float: left;
+  transition: 0.5s;
+  z-index: 0;
+  cursor: pointer;
+}
+
+.item a{
+  display: block;
+  width: inherit;
+  height: inherit;
+  color: #fff;
+  text-align: center;
+  line-height: 52px;
+  background: #675648;
+  border-radius: 30px;
+  box-sizing: border-box;
+  animation: plus 4s infinite;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.item li:nth-child(1){transform: translate(350px,470px);}
+.item li:nth-child(2){transform: translate(290px,755px);}
+.item li:nth-child(3){transform: translate(725px,710px);}
+.item li:nth-child(4){transform: translate(1050px,400px);}
+.item li:nth-child(5){transform: translate(1240px,735px);}
+
+.item a:nth-child(1):before,
+.item a:nth-child(2):before,
+.item a:nth-child(3):before,
+.item a:nth-child(4):before,
+.item a:nth-child(5):before{
+  content: '+';
+  font-size: 30px;
+  transition: 0.5s;
+}
+
+.item li:nth-child(1):after,
+.item li:nth-child(2):after,
+.item li:nth-child(3):after,
+.item li:nth-child(4):after,
+.item li:nth-child(5):after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  background: #675648;
+  border-radius: 30px;
+  text-align: center;
+  line-height: 52px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  animation: plus 4s infinite;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.item li:nth-child(1):after{content: '큐브 정수기';}
+.item li:nth-child(2):after{content: '대리석 스크래처';}
+.item li:nth-child(3):after{content: '에그타르트 침대';}
+.item li:nth-child(4):after{content: '이글루 화장실';}
+.item li:nth-child(5):after{content: '고양이 식기';}
+
+.item li:nth-child(1):hover:after,
+.item li:nth-child(2):hover:after,
+.item li:nth-child(3):hover:after,
+.item li:nth-child(4):hover:after,
+.item li:nth-child(5):hover:after{
+  width: 185px;
+  opacity: 1;
+}
+
+@keyframes plus{
+  0%{transform: translateY(0);}
+  50%{transform: translateY(15px);}
+  100%{transform: translateY(0);}
+}
+@keyframes text{
+  0%{opacity: 0;transform: translateY(20px);}
+  100%{transform: translateY(0px);}
+}
+
+#main p{
+  position: absolute;
+  left: 79px;
+  top: 210px;
+  font-size: 80px;
+  text-transform: capitalize;
+  font-weight: 600;
+  line-height: 90px;
+  letter-spacing: 1.5px;
+  color: rgb(255, 255, 255);
+  animation: text 2s;
+  transition: 0.35s;
+}
+
+#main p:hover{text-shadow: 0 5px 10px #675648a6;}
+
+
+/* nav */
+.top-nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #fff;
+  display: flex;
+  width: 100%;
+  height: 140px;
+  background: linear-gradient(to bottom, #9b8c77a6, #9b8c777a, #9b8c7700);
+  min-width: 1400px;
+  margin: auto;
+  z-index: 100;
+}
+
+.logo{
+  width: 230px;
+  margin: 50px 87px;
+}
+
+.menu{
+  position: absolute;
+  right: 0;
+  width: 800px;
+  height: 20px;
+  margin: 60px 58px;
+}
+
+.gnb{
+  display: flex;
+  justify-content: space-around;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+
+.gnb li a{
+  position: relative;
+  transition: 0.5s;
+}
+
+.gnb li a:before{
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  width: 0;
+  transform: translateX(-50%);
+  height: 2px;
+  background-color: #675648;
+  transition: 0.5s;
+}
+
+.gnb li a:hover{color: #675648;}
+.gnb li a:hover:before{width: 100%;}
+
+.gnb li:nth-child(6){margin: -5px -10px 0 20px;}
+.gnb li:nth-child(7){margin: -5px 0 0 -10px;}
+
+.gnb span{
+  cursor: pointer;
+  font-size: 30px;
+  transition: 0.5s;
+}
+
+.gnb span:hover{color: #675648;}
+
+
+/* ####################### Section */
+
+
+section{
+  width: 100%;
+  position: relative;
+}
+
+
+/* content01 */
+#content01{
+  width: 100%;
+  height: 1700px;
+  border: 1px solid #fff;
+  margin-top: 16px;
+}
+
+.text{
+  display: flex;
+  margin: 150px 84px;
+}
+
+.text h2{
+  font-size: 43px;
+  color: #675648;
+  line-height: 50px;
+}
+
+.text p{
+  margin: 10px 0 0 450px;
+  line-height: 32px;
+}
+
+.text span{display: block;}
+
+.img img{
+  width: 600px;
+  height: 710px;
+  display: block;
+}
+
+.img-cat{
+  display: flex;
+  position: absolute;
+  right: 0;
+  margin: 0px 83px 0 0;
+}
+
+.cat-img1{
+  height: 710px;
+  transition: 0.35s;
+}
+
+.cat-img2{
+  margin-top: 400px;
+  transition: 0.35s;
+}
+
+.cat-img1:hover{
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px #675648a6;
+}
+
+.cat-img2:hover{
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px #675648a6;
+}
+
+.circle img{
+  position: absolute;
+  left: 58%;
+  top: 480px;
+  width: 250px;
+  height: 250px;
+  animation: circle 10s infinite linear;
+}
+
+@keyframes circle{
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
+}
+
+.border-logo img{
+  position: absolute;
+  left: -25px;
+  top: 1393px;
+  width: 930px;
+}
+
+.text2{
+  position: absolute;
+  left: 32.5%;
+  top: 1200px;
+  line-height: 32px;
+}
+
+.text2 em{
+  font-style: normal;
+  font-weight: 400;
+}
+
+
+/* content02 */
+#content02{
+  position: relative;
+  height: 1400px;
+}
+
+#content02 img{width: 100%;}
+
+.only-text1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 150px 84px;
+  display: flex;
+}
+
+.only-text1 h2{
+  font-size: 43px;
+  line-height: 50px;
+  color: #675648;
+}
+
+.only-text1 span{display: block;}
+
+.only-text1 p{
+  margin: 10px 0 0 450px;
+  line-height: 32px;
+}
+
+.only-text2{
+  position: absolute;
+  left: 190px;
+  bottom: 190px;
+  width: 1400px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 35px;
+  transition: 0.35s;
+}
+
+.only-text2:hover{transform: scale(1.1);}
+
+.only-text2 p{
+  transition: 0.35s;
+  animation: text2 4s infinite;
+}
+
+@keyframes text2{
+  0%{transform: translateY(0px);}
+  50%{transform: translateY(-25px);}
+  100%{transform: translateY(0px);}
+}
+
+.only-text2 p:nth-child(2){animation-delay: 0.5s;}
+.only-text2 p:nth-child(3){animation-delay: 1s;}
+
+.only-text2 p:nth-child(1):before,
+.only-text2 p:nth-child(2):before,
+.only-text2 p:nth-child(3):before{
+  content: '';
+  position: absolute;
+  font-family: 'Material Icons Outlined';
+  font-size: 40px;
+  color: #675648;
+  bottom: 100%;
+  margin-bottom: 30px;
+}
+
+.only-text2 p:nth-child(1):before{content: '\e91d';}
+.only-text2 p:nth-child(2):before{content: '\ea99';}
+.only-text2 p:nth-child(3):before{content: '\ea70';}
+
+
+/* content03 */
+#content03{
+  width: 100%;
+  height: 2000px;
+  border: 1px solid #fff;
+  margin-top: 2px;
+}
+
+#content03 h4{
+  font-size: 43px;
+  color: #675648;
+  text-align: center;
+  margin: 130px 0;
+}
+
+.product1, .product2{
+  width: 1430px;
+  margin: auto;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.product1 div:nth-child(1),
+.product1 div:nth-child(2),
+.product2 div:nth-child(1),
+.product2 div:nth-child(2){
+  width: 700px;
+  height: 700px;
+  transition: 0.4s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.product1 div:nth-child(1){background: url(../image/pd1.png);}
+.product1 div:nth-child(2){background: url(../image/pd2.png);}
+.product2 div:nth-child(1){background: url(../image/pd3.png);}
+.product2 div:nth-child(2){background: url(../image/pd4.png);}
+
+.product1 div:nth-child(1):hover{background: url(../image/pd1-over.png);}
+.product1 div:nth-child(2):hover{background: url(../image/pd2-over.png);}
+.product2 div:nth-child(1):hover{background: url(../image/pd3-over.png);}
+.product2 div:nth-child(2):hover{background: url(../image/pd4-over.png);}
+
+.product1 div:nth-child(1):after,
+.product1 div:nth-child(2):after,
+.product2 div:nth-child(1):after,
+.product2 div:nth-child(2):after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(to top, #675648c2, transparent);
+  transition: 0.8s;
+}
+
+.product1 div:nth-child(1):hover:after,
+.product1 div:nth-child(2):hover:after,
+.product2 div:nth-child(1):hover:after,
+.product2 div:nth-child(2):hover:after{
+  bottom: 0;
+}
+
+.product1 div:nth-child(1):before,
+.product1 div:nth-child(2):before,
+.product2 div:nth-child(1):before,
+.product2 div:nth-child(2):before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-left: 40px;
+  width: 100%;
+  height: 105px;
+  line-height: 38px;
+  font-size: 25px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #fff;
+  transition: 0.35s;
+  transition-delay: 0.5s;
+  opacity: 0;
+  z-index: 1;
+}
+
+.product1 div:nth-child(1):before{
+  content: '동물친구들 스크래쳐 \A 51,000';
+  white-space: pre;
+}
+
+.product1 div:nth-child(2):before{
+  content: '몬스터 스크래쳐 \A 75,000';
+  white-space: pre;
+}
+
+.product2 div:nth-child(1):before{
+  content: '몬스터 블럭 스크래쳐 \A 66,000';
+  white-space: pre;
+}
+
+.product2 div:nth-child(2):before{
+  content: '펀플레이 캣타워 \A 235,000';
+  white-space: pre;
+}
+
+.product1 div:nth-child(1):hover:before,
+.product1 div:nth-child(2):hover:before,
+.product2 div:nth-child(1):hover:before,
+.product2 div:nth-child(2):hover:before{
+  opacity: 1;
+}
+
+
+/* context04 */
+#content04{
+  height: 910px;
+  background-color: #e4ded2;
+  position: relative;
+}
+
+#content04 h4{
+  font-size: 43px;
+  color: #675648;
+  text-align: center;
+  padding: 130px 0;
+}
+
+.scroll{width: 1960px;}
+
+@keyframes review{
+  0%{transform: translateX(240px);}
+  50%{transform: translateX(-265px);}
+  100%{transform: translateX(240px);}
+}
+
+.review{
+  display: flex;
+  margin: auto;
+  animation: review 8s infinite;
+}
+
+.review > div{
+  margin-right: 20px;
+  width: 470px;
+  height: 320px;
+  background: #fff;
+  position: relative;
+  transition: 0.35s;
+}
+
+.review > div:hover{
+  transform: scale(1.1);
+  box-shadow: 0 5px 10px #67564891;
+  z-index: 1;
+}
+
+.text-review{
+  position: absolute;
+  left: 40px;
+  top: 16%;
+  width: 390px;
+  height: 110px;
+  border-radius: 60px;
+  background: #f7f6f4;
+  border: 1px solid #afa39a;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.text-review img{
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 150px;
+  border-right: 1px solid #afa39a;
+}
+
+.re-text{
+  margin: 28px 0 0 190px;
+  line-height: 30px;
+  text-align: left;
+}
+
+.re-text span:nth-child(2){
+  color: #e0c09a;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+}
+
+.review p{
+  position: absolute;
+  left: 40px;
+  bottom: 16%;
+  line-height: 30px;
+}
+
+
+/* left, right button */
+.left, .right{
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 60px;
+  color: #675648;
+  border: 1px solid #675648;
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+  transition: 0.35s;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.left:hover, .right:hover{
+  color: #fff;
+  border: 1px solid #675648;
+  background-color: #675648;
+  transform: translateY(-7px);
+  box-shadow: 0 5px 10px #67564891;
+}
+
+.left{left: 84px;}
+
+.left:before, .right:before{
+  content: '';
+  font-family: 'Material Icons Outlined';
+  position: absolute;
+  font-size: 25px;
+}
+
+.left:before{
+  content: '\e5e0';
+  top: 29%;
+  left: 27%;
+}
+
+.right{right: 84px;}
+
+.right:before{
+  content: '\e5e1';
+  top: 29%;
+  left: 31%;
+}
+
+
+/* contect05 */
+#content05{
+  height: 2397px;
+  position: relative;
+}
+
+#content05 h6{
+  position: absolute;
+  font-size: 90px;
+  left: 32.5%;
+  top: 35%;
+  color: #fff;
+  transition: 0.35s;
+  animation: text2 5s infinite;
+}
+
+#content05 h6:hover{text-shadow: 0 5px 10px #675648a6;}
+
+#content05 img{width: 100%;}
+
+.contact{
+  position: absolute;
+  bottom: 200px;
+  left: 13%;
+  width: 1400px;
+  height: 740px;
+  background: #fff;
+}
+
+#contact{
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  bottom: 100%;
+}
+
+.contact h5{
+  font-size: 43px;
+  color: #675648;
+  padding: 105px 0 0 90px;
+  font-size: 43px;
+  color: #675648;
+}
+
+.contact p{
+  padding: 0 0 0 90px;
+  line-height: 28px;
+  margin-top: 10px;
+  font-size: 15px;
+  height: 300px;
+}
+
+.con-text span{
+  display: block;
+  width: 93%;
+  font-size: 27px;
+  line-height: 48px;
+  font-weight: 500;
+  margin-bottom: 240px;
+}
+
+.con-input{
+  position: absolute;
+  right: 500px;
+  top: 100px;
+}
+
+.con-input div, .con-input2 div{
+  font-size: 19px;
+  margin: 10px 0 30px 0;
+  font-weight: 500;
+}
+
+.con-input div span{
+  font-size: 13px;
+  margin-left: 10px;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 0.76);
+}
+
+input[type=text],
+input[type=email],
+input[type=tel]{
+  display: block;
+  font-family: 'NotoSansKR', sans-serif;
+  width: 300px;
+  height: 50px;
+  padding: 35px 0 25px 0;
+  font-size: 15px;
+  color: #333;
+  border: none;
+  border-bottom: 1px solid #afa39a;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.35s;
+}
+
+input[type=text]::placeholder,
+input[type=email]::placeholder,
+input[type=tel]::placeholder{
+  color: #afa39ace;
+}
+
+input[type=text]:focus::placeholder,
+input[type=email]:focus::placeholder,
+input[type=tel]:focus::placeholder{
+  transform: translateY(-30px);
+  font-size: 11px;
+  color: #675648;
+  transition: 0.35s;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=tel]:focus{
+  border-bottom: 1px solid #675648;
+  transition: 0.35s;
+}
+
+.con-input2{
+  position: absolute;
+  right: 100px;
+  top: 100px;
+}
+
+.con-input2 label span{
+  display: block;
+  font-size: 15px;
+  margin: 40px 0 16px 0;
+  color: #afa39ac0;
+}
+
+.con-input2 label span:focus{color: #675648;}
+
+textarea{
+  border: none;
+  border: 1px solid #afa39a;
+  width: 300px;
+  height: 220px;
+  padding: 10px;
+  resize: none;
+  outline: none;
+  box-sizing: border-box;
+  transition: 0.35s;
+}
+
+textarea:focus{border: 1px solid #675648;}
+
+
+/* submit button */
+.btn input{
+  font-family: 'NotoSansKR', sans-serif;
+  display: block;
+  background: #fff;
+  line-height: 48px;
+  width: 300px;
+  height: 50px;
+  color: #675648;
+  font-size: 17px;
+  font-weight: 500;
+  border: 1px solid #675648;
+  border-radius: 30px;
+  margin: 122px 0 0 1000px;
+  transition: 0.35s;
+  cursor: pointer;
+}
+
+.btn input:hover{
+  color: #fff;
+  border: 1px solid #675648;
+  background-color: #675648;
+  transform: translateY(-7px);
+  box-shadow: 0 5px 10px #67564891;
+}
+
+
+/* button */
+.btn a{
+  display: block;
+  margin: auto;
+  text-align: center;
+  line-height: 52px;
+  width: 300px;
+  height: 50px;
+  color: #675648;
+  font-weight: 500;
+  border: 1px solid #675648;
+  border-radius: 30px;
+  margin-top: 90px;
+  transition: 0.35s;
+}
+
+.btn a:hover{
+  color: #fff;
+  border: 1px solid #675648;
+  background-color: #675648;
+  transform: translateY(-7px);
+  box-shadow: 0 5px 10px #67564891;
+}
+
+
+/* ####################### Footer */
+footer{
+  background: #111;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.bottom-nav{
+  position: relative;
+  width: 1400px;
+  height: 180px;
+  padding: 90px 80px;
+}
+
+.bottom-logo{width: 200px;}
+
+footer p, footer span, address{
+  font-weight: 300;
+  font-style: normal;
+}
+
+footer p{
+  font-size: 23px;
+  margin: 60px 0 30px 0;
+}
+
+footer span, address{
+  font-size: 14px;
+  line-height: 25px;
+  color: #fff;
+}
+
+address{margin-top: 3px;}
+
+.sns a{
+  position: absolute;
+  display: flex;
+  width: 20px;
+  height: 20px;
+  top: 80px;
+  right: 95px;
+}
+
+.sns1 a{margin-right: 80px;}
+.sns2 a{margin-right: 40px;}
